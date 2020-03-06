@@ -4,34 +4,33 @@ const pageElements = new PageElements;
 
 class PageObjects {
     entrarSite() {
-        cy.visit('https://www.submarino.com.br/');
-        cy.wait(2000)
-    };
+        cy.visit('https://submarino.com.br/').wait(2000)
+    }
 
     buscaProduto() {
         cy.get(pageElements.busca()).type('coador')
-        .get(pageElements.buttonPesquisa()).click()
-    };
+        .get(pageElements.buttonPesquisa()).click().wait(8000)
+    }
 
     selecionaProduto() {
         cy.get(pageElements.gridProdutos()).should('be.visible')
         .get(pageElements.primeiroProduto()).click().wait(1000)
-    };
+    }
 
     comprarProduto() {
         cy.get(pageElements.buttonComprar()).should('be.visible').click().wait(2000)
-    };
+    }
 
     finalizarCompra() {
         cy.get(pageElements.total()).should('be.visible')
         .get(pageElements.buttonContinuar()).click()
         .get(pageElements.entrarOuCadastrar()).should('be.visible')
-    };
+    }
 
     novoCadastro() {
         cy.get(pageElements.novoCadastro()).click()
 
-    };
+    }
 
     camposNovoCadastro() {
         cy.get(pageElements.campoEmail()).type('teste@hotmail.com')
@@ -41,46 +40,41 @@ class PageObjects {
         .get(pageElements.campoDataNascimento()).type('13/04/1990')
         .get(pageElements.campoSexo()).check()
         .get(pageElements.campoTelefone()).type('4430905869')
-
-    };
+    }
 
     invalidoCPF() {
         cy.get(pageElements.campoCPF()).clear().type('09789678509')
 
-    };
+    }
 
     validaCampo() {
         cy.get(pageElements.cpfInvalido()).should('have.text', 'Campo inválido');
-    };
+    }
 
     criarCadastro() {
         cy.get(pageElements.buttonCriaCadastro()).click()
-    };
-
+    }
 
     telaCep() {
         cy.get(pageElements.campoCep()).type('87113050')
         .get(pageElements.campoNumero()).type('980')
         .get(pageElements.campoReferencia()).type('Posto na esquina')
         .get(pageElements.buttonCriaCadastro()).should('have.text', ' Entregar neste endereço ').click()
-    };
+    }
 
     selecionaBoleto() {
         cy.get(pageElements.boleto()).should('be.visible')
         .get(pageElements.buttonCriaCadastro()).should('have.text', ' selecione ').click()
-    };
+    }
 
     gerarBolero() {
         cy.get(pageElements.buttonGeraBoleto()).click()
 
-    };
+    }
     
     confirmacaoPedido() {
         cy.get('.overflow-hidden pull-left ng-scope').should('have.text', 'Confirmação de pedido enviada para:')
-    };
-
-
-
+    }
 }
 
 export default PageObjects;
