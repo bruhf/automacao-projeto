@@ -1,4 +1,6 @@
-import PageObjects from '../../support/pageObjects/PageObjects'
+/* global Given, Then, When */
+
+import PageObjects from '../PageObjects/PageObjects'
 
 const pageObjects = new PageObjects; 
 
