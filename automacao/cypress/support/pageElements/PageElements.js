@@ -2,7 +2,7 @@ class PageElements {
    busca = () => '.src-input-wpr';
    buttonPesquisa = () => '.src-btn';
    gridProdutos = () => '.row product-grid no-gutters main-grid';
-   primeiroProduto = () => '.product-grid-item';
+   primeiroProduto = () => '.product-grid-item > product-v2__ProductCardV2-sc-19wdoj3-0 > RippleContainer-sc-1rpenp9-0 > a.Link-bwhjk3-2 :first-child';
    buttonComprar = () => '#btn-buy'
    total = () => '.summary-total__wrapper --summary';
    buttonContinuar = () => '#buy-button';
